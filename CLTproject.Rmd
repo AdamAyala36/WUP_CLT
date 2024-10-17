@@ -63,23 +63,23 @@ print(paste('mean = ', mean(my1000$k2),' sd = ',sd(my1000$k2)))
  
 
 ```{r}
-numb=9
+numb=16
 Hdata = Homers_data[sample(1:1000, size=numb*1000, replace=T),"kkardashtemp"]
 mdata <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k9 = x.avg
+my1000$k16 = x.avg
 
-p <- ggplot(my1000, aes(x=k9), (Col=sex))+
+p <- ggplot(my1000, aes(x=k16), (Col=sex))+
 geom_density()
 
 # Add mean line
-geom_vline(aes(xintercept=mean(k9)),
+geom_vline(aes(xintercept=mean(k16)),
 color="blue", linetype="dashed", size=1)
-p + ggtitle("n = 9") +
+p + ggtitle("n = 16") +
 xlab("temperature") + ylab("desnity")
 
-print(paste('mean = ', mean(my1000$k9),' sd = ',sd(my1000$k9)))
+print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
 
 ```
 
-The mean will always get close to 50 and the standard deviation is getting smaller. This makes sense since the dividing number in the standard deviation formula is getting bigger, when we predict using 41.38 as the sample standard deviation and use sqrt(9) as the sample size we see the predicted value to be 13.79333 and this is pretty close to the approximate value of 14 for the standard deviation.
+The mean will always get close to 50 but hovers around 49. The standard deviation is smaller being around 11 compared to the approximate value of n=9's 14 standard deviation. Predicting the standard deviation value using sqrt(16) we get about 10.345 being relativley close to the approximate value of 11.
