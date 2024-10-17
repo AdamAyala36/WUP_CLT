@@ -63,23 +63,23 @@ print(paste('mean = ', mean(my1000$k2),' sd = ',sd(my1000$k2)))
  
 
 ```{r}
-numb=16
+numb=25
 Hdata = Homers_data[sample(1:1000, size=numb*1000, replace=T),"kkardashtemp"]
 mdata <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k16 = x.avg
+my1000$k25 = x.avg
 
-p <- ggplot(my1000, aes(x=k16), (Col=sex))+
+p <- ggplot(my1000, aes(x=k25), (Col=sex))+
 geom_density()
 
 # Add mean line
-geom_vline(aes(xintercept=mean(k16)),
+geom_vline(aes(xintercept=mean(k25)),
 color="blue", linetype="dashed", size=1)
-p + ggtitle("n = 16") +
+p + ggtitle("n = 25") +
 xlab("temperature") + ylab("desnity")
 
-print(paste('mean = ', mean(my1000$k16),' sd = ',sd(my1000$k16)))
+print(paste('mean = ', mean(my1000$k25),' sd = ',sd(my1000$k25)))
 
 ```
 
-The mean will always get close to 50 but hovers around 49. The standard deviation is smaller being around 11 compared to the approximate value of n=9's 14 standard deviation. Predicting the standard deviation value using sqrt(16) we get about 10.345 being relativley close to the approximate value of 11.
+The mean is still close to 50 and the standard deviation has decreased to be approximately 8. A predicted standard deviation using sqrt(25) gives us about 8.276 which is still close for the approximate value of 8. The graph is starting to look more similar on the sides but the tip at around 50 does stand out more often with different data. 
