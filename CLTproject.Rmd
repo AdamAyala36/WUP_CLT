@@ -63,23 +63,23 @@ print(paste('mean = ', mean(my1000$k2),' sd = ',sd(my1000$k2)))
  
 
 ```{r}
-numb=25
+numb=36
 Hdata = Homers_data[sample(1:1000, size=numb*1000, replace=T),"kkardashtemp"]
 mdata <-matrix(Hdata,nrow=1000,ncol=numb)
 x.avg <- apply(mdata,1,mean)
-my1000$k25 = x.avg
+my1000$k36 = x.avg
 
-p <- ggplot(my1000, aes(x=k25), (Col=sex))+
+p <- ggplot(my1000, aes(x=k36), (Col=sex))+
 geom_density()
 
 # Add mean line
-geom_vline(aes(xintercept=mean(k25)),
+geom_vline(aes(xintercept=mean(k36)),
 color="blue", linetype="dashed", size=1)
-p + ggtitle("n = 25") +
+p + ggtitle("n = 36") +
 xlab("temperature") + ylab("desnity")
 
-print(paste('mean = ', mean(my1000$k25),' sd = ',sd(my1000$k25)))
+print(paste('mean = ', mean(my1000$k36),' sd = ',sd(my1000$k36)))
 
 ```
 
-The mean is still close to 50 and the standard deviation has decreased to be approximately 8. A predicted standard deviation using sqrt(25) gives us about 8.276 which is still close for the approximate value of 8. The graph is starting to look more similar on the sides but the tip at around 50 does stand out more often with different data. 
+The mean is still close to 50 and the standard deviation has decreased to be approximately 7. If we use sqrt (36) to predict the standard deviation we get about 6.89667. The graphs sides now look smooth not seeing the bumps unlike using smaller sample sizes.
